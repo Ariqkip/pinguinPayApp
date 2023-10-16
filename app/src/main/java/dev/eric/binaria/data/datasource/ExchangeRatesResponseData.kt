@@ -1,4 +1,4 @@
-package dev.eric.binaria.data.datasource.remote.model
+package dev.eric.binaria.data.datasource.remote
 
 import dev.eric.binaria.domain.model.ExchangeRatesResponse
 import kotlinx.serialization.SerialName
