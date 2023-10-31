@@ -15,6 +15,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -35,6 +38,7 @@ import dev.eric.binaria.ui.theme.green100
 fun BinariaTextField(
     value: String,
     onChange: (String) -> Unit,
+    isTyping:(Boolean)=false,
     modifier: Modifier = Modifier,
     onDone: () -> Unit = {},
     isValid: Boolean = true,
@@ -92,6 +96,7 @@ fun BinariaTextField(
                 value = value,
                 onValueChange = {
                     onChange(it)
+                    
                 },
                 keyboardOptions = keyboardOptions,
                 placeholder = { Text(text = hint, textAlign = TextAlign.Center) },
@@ -106,6 +111,7 @@ fun BinariaTextField(
                     }),
 
                 )
+
             if (action != null) {
                 Spacer(modifier = Modifier.width(8.dp))
                 action()
@@ -121,9 +127,12 @@ fun BinariaTextField(
                 style = MaterialTheme.typography.body1,
                 color = Color.Red
             )
+
+
         }
     }
 }
+
 
 @Composable
 fun TextIcon(text: String = "+254") {

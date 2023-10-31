@@ -1,5 +1,6 @@
 package dev.eric.binaria
 
+import android.icu.util.TimeUnit
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,6 +21,10 @@ import dev.eric.binaria.screen.SendMoneySuccessScreen
 import dev.eric.binaria.ui.theme.green70
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import dev.eric.binaria.viewmodel.ExchangeRatesViewModel
+import kotlinx.coroutines.Delay
+import kotlinx.coroutines.delay
+import okio.Timeout
+import kotlin.concurrent.timer
 
 
 class MainActivity : ComponentActivity() {
@@ -41,6 +46,7 @@ class MainActivity : ComponentActivity() {
             val state = exchangeRatesViewModel.exchangeRatesState
 
             if (state.isLoading) {
+
                 BinariaProgressDialog()
             }
 

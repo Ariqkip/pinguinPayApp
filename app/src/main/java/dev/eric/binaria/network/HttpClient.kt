@@ -16,11 +16,11 @@ import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-class BinariaHttpClientImpl : BinariaHttpClient {
+class StockWaveHttpClientImpl : StockWaveHttpClient {
 
     private val client = HttpClient {
         defaultRequest {
-            url(BinariaHttpClient.BASE_URL)
+            url(StockWaveHttpClient.BASE_URL)
             contentType(ContentType.Application.Json)
         }
 
@@ -48,9 +48,9 @@ class BinariaHttpClientImpl : BinariaHttpClient {
         }
     }
 
-    override fun getHttpClient(appId: String, symbols: String): HttpClient {
+    override fun getHttpClient(appKey: String, symbols: String): HttpClient {
         client.plugin(HttpSend).intercept { request ->
-            request.url.parameters.append("app_id", appId)
+            request.url.parameters.append("app_id", appKey)
             if(symbols.isNotEmpty()) {
                 request.url.parameters.append("symbols", symbols)
             }
@@ -61,8 +61,8 @@ class BinariaHttpClientImpl : BinariaHttpClient {
     }
 }
 
-interface BinariaHttpClient {
-    fun getHttpClient(appId: String, symbols: String = ""): HttpClient
+interface StockWaveHttpClient {
+    fun getHttpClient(appKey: String, symbols: String = ""): HttpClient
 
     companion object {
         const val BASE_URL = "http://openexchangerates.org"

@@ -1,7 +1,7 @@
 package dev.eric.binaria.data.repository
 
 import dev.eric.binaria.data.datasource.ExchangeRatesDataSource
-import dev.eric.binaria.data.datasource.remote.model.toDomain
+import dev.eric.binaria.data.datasource.toDomain
 import dev.eric.binaria.domain.common.Response
 import dev.eric.binaria.domain.model.ExchangeRatesResponse
 import dev.eric.binaria.domain.repository.ExchangeRatesRepository

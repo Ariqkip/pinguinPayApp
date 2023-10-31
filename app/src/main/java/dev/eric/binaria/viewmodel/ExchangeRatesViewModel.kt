@@ -56,6 +56,7 @@ class ExchangeRatesViewModel(
                     exchangeRatesState.copy(firstName = action.firstName)
                 } else {
                     exchangeRatesState.copy(firstNameError = "")
+
                 }
             }
             is Action.OnLastNameChanged -> {
@@ -71,6 +72,8 @@ class ExchangeRatesViewModel(
             is Action.OnPhonePrefixChanged -> {
                 exchangeRatesState = exchangeRatesState.copy(prefix = action.phonePrefix)
             }
+
+            else -> {}
         }
 
         exchangeRatesState = exchangeRatesState.copy(

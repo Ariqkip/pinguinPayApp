@@ -7,8 +7,8 @@ import dev.eric.binaria.domain.InternetService
 import dev.eric.binaria.domain.InternetServiceImpl
 import dev.eric.binaria.domain.repository.ExchangeRatesRepository
 import dev.eric.binaria.domain.usecase.FetchExchangeRatesUseCase
-import dev.eric.binaria.network.BinariaHttpClient
-import dev.eric.binaria.network.BinariaHttpClientImpl
+import dev.eric.binaria.network.StockWaveHttpClient
+import dev.eric.binaria.network.StockWaveHttpClientImpl
 import dev.eric.binaria.viewmodel.ExchangeRatesViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -19,7 +19,7 @@ val DomainModule = module {
 }
 
 val DataModule = module {
-    factory<BinariaHttpClient> { BinariaHttpClientImpl() }
+    factory<StockWaveHttpClient> { StockWaveHttpClientImpl() }
     single<InternetService> { InternetServiceImpl(androidContext()) }
     single<ExchangeRatesRepository> { ExchangeRatesRepositoryImpl(get()) }
     single<ExchangeRatesDataSource>{ ExchangeRatesDataSourceImpl(get()) }

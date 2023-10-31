@@ -77,12 +77,15 @@ fun CountriesBottomSheet(countries: List<String>, onCountrySelected: (String)-> 
             Column(modifier = Modifier
                 .fillMaxWidth()
             ) {
-                Text(text = "Countries", style = MaterialTheme.typography.h5.copy(fontWeight = FontWeight.Bold, color = gray100))
+                Text(text = "Countries",
+                    style = MaterialTheme.typography.h5.copy(fontWeight = FontWeight.Bold,
+                        color = gray100))
                 var searchValue by remember { mutableStateOf("") }
                 Spacer(modifier = Modifier.height(16.dp))
                 SearchBox(searchValue, { searchValue = it }, modifier = Modifier.fillMaxWidth())
                 val filteredList = countries.filter {
                     it.contains(searchValue, ignoreCase = true)
+
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 LazyColumn(

@@ -77,6 +77,8 @@ fun SendMoneyFormScreen(
     val focusManager = LocalFocusManager.current
     val scope = rememberCoroutineScope()
     val keyboardController = LocalSoftwareKeyboardController.current
+    var textValue by remember { mutableStateOf("") }
+    var isValid by remember { mutableStateOf(true) }
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(initialValue = BottomSheetValue.Collapsed, density = density)
@@ -93,7 +95,7 @@ fun SendMoneyFormScreen(
         sheetContent = {
             CountriesBottomSheet(countries = countries) {
                 selectedCountry = it
-                viewModel.onAction(ExchangeRatesViewModel.Action.OnCountrySelected(it, countryPrompt))
+                viewModel.onAction(ExchangeRatesViewModel.Action.OnCountrySelected(it,countryPrompt))
             }
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
@@ -119,7 +121,6 @@ fun SendMoneyFormScreen(
                     modifier = Modifier
                         .size(32.dp)
                         .clip(RoundedCornerShape(10.dp))
-                        .background(Color(0XFFF2F3F4))
                         .clickable {
                             navController.popBackStack()
                         },
@@ -130,6 +131,7 @@ fun SendMoneyFormScreen(
                         painter = painterResource(id = R.drawable.arrow_left),
                         contentDescription = "back arrow",
                         modifier = Modifier.size(16.dp)
+
                     )
                 }
 
@@ -154,7 +156,9 @@ fun SendMoneyFormScreen(
                     value = state.firstName,
                     onChange = {
                         viewModel.onAction(ExchangeRatesViewModel.Action.OnFirstNameChanged(it))
+
                     },
+
                     hint = "Joe",
                     onDone = {},
                     label = "First Name",
@@ -264,6 +268,7 @@ fun SendMoneyFormScreen(
                                 .padding(top = 8.dp)
                                 .testTag("phone number")
                             ,
+
                             colors = TextFieldDefaults.outlinedTextFieldColors(
                                 placeholderColor = Color(0.88f, 0.89f, 0.9f, 1.0f),
                                 unfocusedBorderColor = Color(0.75f, 0.76f, 0.79f, 1.0f),

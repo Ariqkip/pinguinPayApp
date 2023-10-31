@@ -1,8 +1,8 @@
 package dev.eric.binaria
 
 import dev.eric.binaria.data.datasource.ExchangeRatesDataSource
-import dev.eric.binaria.data.datasource.remote.model.ExchangeRatesResponseData
-import dev.eric.binaria.data.datasource.remote.model.Rates
+import dev.eric.binaria.data.datasource.ExchangeRatesResponseData
+import dev.eric.binaria.data.datasource.Rates
 
 class FakeExchangeRatesDataSource(): ExchangeRatesDataSource {
 

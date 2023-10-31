@@ -1,8 +1,8 @@
 package dev.eric.binaria
 
-import dev.eric.binaria.data.datasource.remote.model.ExchangeRatesResponseData
-import dev.eric.binaria.data.datasource.remote.model.Rates
-import dev.eric.binaria.data.datasource.remote.model.toDomain
+import dev.eric.binaria.data.datasource.ExchangeRatesResponseData
+import dev.eric.binaria.data.datasource.Rates
+import dev.eric.binaria.data.datasource.toDomain
 import dev.eric.binaria.data.repository.ExchangeRatesRepositoryImpl
 import kotlinx.coroutines.runBlocking
 import org.junit.After

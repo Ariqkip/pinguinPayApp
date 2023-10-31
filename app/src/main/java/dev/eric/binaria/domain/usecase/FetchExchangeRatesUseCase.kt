@@ -14,6 +14,8 @@ class FetchExchangeRatesUseCase(
     override suspend fun execute(): Response<ExchangeRatesResponse> {
         if (!internetService.isConnected()) {
             return Response.failure(InternetException)
+            throw error("not internet connection")
+
         }
         return exchangeRatesRepository.fetchLatestExchangeRates()
     }

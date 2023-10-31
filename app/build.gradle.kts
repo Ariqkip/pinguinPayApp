@@ -83,6 +83,7 @@ dependencies {
     // coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
 
     // tests
     testImplementation("junit:junit:4.13.2")
@@ -92,4 +93,6 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    //themes
+
 }
